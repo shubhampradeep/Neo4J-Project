@@ -1,0 +1,53 @@
+Q1. What are the names of all Air-Air missiles?
+match (n:M)-[r:Type]->(n1:MType {name:'Air-Air Missile'}) return n
+
+Q2. Which missiles are manufactured by both DRDO and BEL ?
+match (n:MANUFACTURER{name:'Bharat Electronics Limited'})-[r:MANUFACTURES ]->(n1:M),(m:MANUFACTURER {name:'Defence Research and Development Organisation'})-[r1:MANUFACTURES]->(n1) return n1 
+
+Q3. Which Manufacture manufactures both Air-Air and Surface-Surface missile?
+MATCH (m:MANUFACTURER)-[r1:MANUFACTURES]->(n:M)-[r2:Type]->(n1:MType {name:'Air-Air Missile'} ),(m)-[r3:MANUFACTURES]->(n2:M)-[r4:Type]->(n3:MType {name:'Surface-Surface Missile'}) return distinct m
+
+Q4. Which Manufacture manufactures both Defense and Cruise missile?
+MATCH (m:MANUFACTURER)-[r1:MANUFACTURES]->(n:M)-[r2:Type]->(n1:MType {name:'Defence Missile'}),(m)-[r3:MANUFACTURES]->(n2:M)-[r4:Type]->(n3:MType {name:'Cruise Missile'}) return distinct m
+
+Q5. Which missile have an operating range between 100 and 200 km?
+match (n:M) where n.maxr<=200 and n.minr>=100 return distinct n
+  
+Q6. Which missiles are manufactured in both India and Russia?
+MATCH(n:M)<-[:MANUFACTURES {origin:'INDIA'}]-(n1:MANUFACTURER),(n2:MANUFACTURER)-[:MANUFACTURES {origin:'RUSSIA'}]->(n) return distinct n
+
+Q7. Which missiles are manufactured in India?
+MATCH (n:M)<-[:MANUFACTURES {origin:'INDIA'}]-(n1:MANUFACTURER) return distinct n
+
+Q8. Which missile has the highest operating range?
+MATCH (n:M)RETURN n ORDER BY (n.maxr-n.minr) DESC LIMIT 1
+
+Q9. What are the top 10 missiles that have the highest operating range?
+MATCH (n:M)RETURN n ORDER BY (n.maxr-n.minr) DESC LIMIT 10
+
+Q10. Which missiles have range above 3000km?
+match (n:M) where n.minr>=3000 return n
+
+Q11. Which launch platforms uses missiles manufactured by DRDO?
+MATCH (n:MANUFACTURER {name:'Defence Research and Development Organisation'})-[:MANUFACTURES]->(:M)-[:LAUNCH_PLATFORM]->(n1:CRAFT) return distinct n1
+
+Q12. Submarine Missiles are used in which launch platforms?
+MATCH (n:M)-[:Type]->(:MType {name:'Submarine Missile'}), (n)-[:LAUNCH_PLATFORM]->(n1:CRAFT) return distinct n1
+     
+Q13. Astra missile is used in which launch platform?
+MATCH (n:M {name:'ASTRA'})-[:LAUNCH_PLATFORM]->(n1:CRAFT) return n1
+          
+Q14. Akash is manufactured by which manufacturer and what is the location of the manufacturer?
+MATCH (n:MANUFACTURER)-[r:MANUFACTURES]->(n1:M {name:'Akash'}) return distinct n,r
+         
+Q15. Which missiles are used in HAL Light Combat Helicopter?
+MATCH (n:CRAFT {Craftname:'HAL Light Combat Helicopter'})<-[:LAUNCH_PLATFORM]-(n1:M) return distinct n1
+
+Q16. Which short range air-air missiles are manufactured by DRDO ?
+match (n:MANUFACTURER {name:'Defence Research and Development Organisation'})-[:MANUFACTURES]->(n1:M)-[:Type]->(n2:MType {name:'Air-Air Missile'} ) where n1.maxr<=500 return n1
+          
+Q17. What are the top 10 short range missiles in india ?
+match (n:M) return n order by n.minr  ASC LIMIT 10
+
+MATCH (n:PRODUCT)
+DETACH DELETE n

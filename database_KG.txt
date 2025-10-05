@@ -1,0 +1,412 @@
+CREATE(Astra:M {name:'ASTRA',minr:60,maxr:80})
+CREATE(K100:M {name:'K-100',minr:300,maxr:400})
+CREATE(Mica:M {name:'MICA',minr:60,maxr:500})
+
+CREATE (AA:MType {name:'Air-Air Missile'})
+CREATE (SA:MType {name:'Surface-Air Missile'})
+CREATE (Def:MType {name:'Defence Missile'})
+CREATE (Cruise:MType {name:'Cruise Missile'})
+CREATE (SS:MType {name:'Surface-Surface Missile'})
+CREATE (Submarine:MType {name:'Submarine Missile'})
+CREATE (AT:MType {name:'Anti Tank Missile'})
+
+CREATE (Astra)-[:Type]->(AA)
+CREATE (AA)<-[:Type]-(Mica)
+CREATE (AA)<-[:Type]-(K100)
+
+
+CREATE(Akash:M {name:'Akash',minr:30,maxr:35})
+CREATE(Barak8:M {name:'BARAK 8',minr:70,maxr:100})
+CREATE(Trishul:M {name:'Trishul',minr:2,maxr:9})
+
+CREATE(PAD:M {name:'Prithvi Air Defence',minr:300,maxr:2000})
+
+CREATE (Akash)-[:Type]->(SA)
+CREATE (SA)<-[:Type]-(Barak8)
+CREATE (SA)<-[:Type]-(Mica)
+CREATE (SA)<-[:Type]-(Trishul)
+CREATE (SA)<-[:Type]-(PAD)
+
+
+
+CREATE(AAD:M {name:'Advanced Air Defence',minr:150,maxr:200})
+CREATE(PDV:M {name:'Prithvi Defence Vehicle',minr:120,maxr:150})
+
+CREATE (Def)<-[:Type]-(AAD)
+CREATE (Def)<-[:Type]-(PDV)
+CREATE (Def)<-[:Type]-(PAD)
+
+CREATE(Nirbhay:M {name:'Nirbhay',minr:1000,maxr:1500})
+CREATE(BrahMos:M {name:'BrahMos',minr:300,maxr:500})
+CREATE(BrahMosII:M {name:'BrahMosII',minr:200,maxr:290})
+CREATE(BrahMosA:M {name:'BrahMos-A',minr:300,maxr:400})
+CREATE(BrahMosM:M {name:'BrahMos-M',minr:250,maxr:290})
+CREATE(BrahMosNG:M {name:'BrahMos-NG',minr:200,maxr:290})
+
+CREATE (Nirbhay)-[:Type]->(Cruise)
+CREATE (BrahMosII)-[:Type]->(Cruise)
+CREATE (BrahMosA)-[:Type]->(Cruise)
+CREATE (BrahMosM)-[:Type]->(Cruise)
+CREATE (BrahMosNG)-[:Type]->(Cruise)
+CREATE (BrahMos)-[:Type]->(Cruise)
+
+
+CREATE(AgniI:M {name:'Agni-I',minr:700,maxr:1250})
+CREATE(AgniII:M {name:'Agni-II',minr:2000,maxr:3000})
+CREATE(AgniIII:M {name:'Agni-III',minr:3500,maxr:5000})
+CREATE(AgniIV:M {name:'Agni-IV',minr:3000,maxr:4000})
+CREATE(AgniV:M {name:'Agni-V',minr:5000,maxr:8000})
+CREATE(AgniVI:M {name:'Agni-VI',minr:8000,maxr:12000})
+CREATE(PrithviI:M {name:'Prithvi-I',minr:100,maxr:150})
+CREATE(PrithviII:M {name:'Prithvi-II',minr:200,maxr:350})
+CREATE(PrithviIII:M {name:'Prithvi-III',minr:350,maxr:600})
+CREATE(Dhanush:M {name:'Dhanush',minr:350,maxr:600})
+CREATE(Prahaar:M {name:'Prahaar',minr:150,maxr:200})
+CREATE(Shaurya:M {name:'Shaurya',minr:750,maxr:1900})
+
+CREATE (AgniII)-[:Type]->(SS)
+CREATE (AgniIII)-[:Type]->(SS)
+CREATE (AgniIV)-[:Type]->(SS)
+CREATE (AgniV)-[:Type]->(SS)
+CREATE (AgniVI)-[:Type]->(SS)
+CREATE (PrithviI)-[:Type]->(SS)
+CREATE (PrithviII)-[:Type]->(SS)
+CREATE (PrithviIII)-[:Type]->(SS)
+CREATE (Dhanush)-[:Type]->(SS)
+CREATE (Prahaar)-[:Type]->(SS)
+CREATE (Shaurya)-[:Type]->(SS)
+CREATE (AgniI)-[:Type]->(SS)
+
+CREATE(Sagarika:M {name:'Sagarika',minr:700,maxr:1900})
+CREATE(K4:M {name:'K-4',minr:3500,maxr:5000})
+CREATE(K5:M {name:'K-5',minr:4000,maxr:6000})
+CREATE(Ashwin:M {name:'Ashwin',minr:150,maxr:200})
+
+CREATE (Sagarika)-[:Type]->(Submarine)
+CREATE (K5)-[:Type]->(Submarine)
+CREATE (Ashwin)-[:Type]->(Submarine)
+
+CREATE (K4)-[:Type]->(Submarine)
+
+
+
+CREATE(Nag:M {name:'Nag',minr:2,maxr:4})
+CREATE(Helina:M {name:'Helina',minr:7,maxr:8})
+CREATE(Amogha1:M {name:'Amogha-1',minr:2,maxr:3})
+
+CREATE (Nag)-[:Type]->(AT)
+CREATE (Helina)-[:Type]->(AT)
+CREATE (Amogha1)-[:Type]->(AT)
+CREATE (AAD)-[:Type]->(AT)
+
+
+CREATE (BDL:MANUFACTURER {name:'Bharat Dynamics Limited'})
+
+CREATE (DRDO:MANUFACTURER {name:'Defence Research and Development Organisation'})
+
+CREATE (NPO:MANUFACTURER {name:'NPO Novator'})
+
+CREATE (MBDA:MANUFACTURER {name:'MBDA'})
+
+CREATE (BEL:MANUFACTURER {name:'Bharat Electronics Limited'})
+
+CREATE (LTL:MANUFACTURER {name:'Larsen & Toubro Limited'})
+
+CREATE (OFB:MANUFACTURER {name:'Ordnance Factory Board'})
+
+CREATE (TPSED:MANUFACTURER {name:'Tata Power Strategic Engineering Division'})
+
+CREATE (IAI:MANUFACTURER {name:'Israel Aerospace Industries'})
+
+CREATE (KELTEC:MANUFACTURER {name:'Brahmos Aerospace Trivandrum ltd'})
+
+CREATE (TELCO:MANUFACTURER {name:'Tata Motors Limited'})
+
+CREATE (HAL:MANUFACTURER {name:'Hindustan Aeronautics Limited'})
+
+//ASTRA,AKASH,barak 8,Trishul,PAD,AAD,PDV,Agni(1,2,3,4,5,6),Prithvi(1,2,3),dhanush,prahaar,Sagarika,Ashwin,NAG,Amogha-1
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Astra)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Barak8)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Trishul)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(PAD)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AAD)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniI)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniII)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniIII)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniIV)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniV)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(AgniVI)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviI)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviII)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviIII)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Dhanush)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Prahaar)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Sagarika)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Ashwin)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Nag)
+CREATE (BDL)-[:MANUFACTURES {origin:'INDIA'}]->(Amogha1)
+//ASTRA,K-100,AKASH,barak 8,Trishul,PAD,AAD,PDV,Nirbhay,BrahMos(1,2,A,M,NG),Agni(1,2,3,4,5,6),Prithvi(1,2,3),dhanush,prahaar,shaurya,Sagarika,K-4,K-5,Ashwin,NAG
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Astra)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Barak8)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Trishul)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(PAD)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AAD)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniI)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniII)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniIII)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniIV)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniV)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(AgniVI)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviI)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviII)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(PrithviIII)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Dhanush)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Prahaar)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Sagarika)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Ashwin)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Nag)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(K100)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(BrahMos)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(BrahMosII)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(BrahMosA)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(BrahMosM)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(BrahMosNG)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Nirbhay)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(Shaurya)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(K4)
+CREATE (DRDO)-[:MANUFACTURES {origin:'INDIA'}]->(K5)
+//K-100,BrahMos(1,2,A,M,NG)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(K100)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(BrahMos)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(BrahMosII)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(BrahMosA)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(BrahMosM)
+CREATE (NPO)-[:MANUFACTURES {origin:'RUSSIA'}]->(BrahMosNG)
+//MICA
+CREATE (MBDA)-[:MANUFACTURES {origin:'FRANCE'}]->(Mica)
+//AKASH,PAD,AAD,PDV,Ashwin
+CREATE (BEL)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (BEL)-[:MANUFACTURES {origin:'INDIA'}]->(PAD)
+CREATE (BEL)-[:MANUFACTURES {origin:'INDIA'}]->(AAD)
+CREATE (BEL)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+CREATE (BEL)-[:MANUFACTURES {origin:'INDIA'}]->(Ashwin)
+//AKASH,PAD,AAD,PDV,Ashwin
+CREATE (LTL)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (LTL)-[:MANUFACTURES {origin:'INDIA'}]->(PAD)
+CREATE (LTL)-[:MANUFACTURES {origin:'INDIA'}]->(AAD)
+CREATE (LTL)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+CREATE (LTL)-[:MANUFACTURES {origin:'INDIA'}]->(Ashwin)
+//AKASH,NAG
+CREATE (OFB)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (OFB)-[:MANUFACTURES {origin:'INDIA'}]->(Nag)
+//AKASH,PDV
+CREATE (TPSED)-[:MANUFACTURES {origin:'INDIA'}]->(Akash)
+CREATE (TPSED)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+//barak 8
+CREATE (IAI)-[:MANUFACTURES {origin:'ISRAEL'}]->(Barak8)
+//PAD,AAD,PDV,Ashwin
+CREATE (KELTEC)-[:MANUFACTURES {origin:'INDIA'}]->(PAD)
+CREATE (KELTEC)-[:MANUFACTURES {origin:'INDIA'}]->(AAD)
+CREATE (KELTEC)-[:MANUFACTURES {origin:'INDIA'}]->(PDV)
+CREATE (KELTEC)-[:MANUFACTURES {origin:'INDIA'}]->(Ashwin)
+//Nirbhay
+CREATE (TELCO)-[:MANUFACTURES {origin:'INDIA'}]->(Nirbhay)
+//Helina
+CREATE (HAL)-[:MANUFACTURES {origin:'INDIA'}]->(Helina)
+
+
+
+
+
+
+
+
+
+
+//Mica,Brahmos-NG,Brahmos-M
+CREATE (Rafale:CRAFT {Craftname:'Dassault Rafale'})
+
+CREATE (Rafale)<-[:LAUNCH_PLATFORM]-(Mica)
+CREATE (Rafale)<-[:LAUNCH_PLATFORM]-(BrahMosNG)
+CREATE (Rafale)<-[:LAUNCH_PLATFORM]-(BrahMosM)
+
+
+//Mica,Astra
+CREATE (Mirage20:CRAFT {Craftname:'Mirage 2000'})
+
+CREATE (Mirage20)<-[:LAUNCH_PLATFORM]-(Mica)
+CREATE (Mirage20)<-[:LAUNCH_PLATFORM]-(Astra)
+
+
+//Mica
+CREATE (MirageF1:CRAFT {Craftname:'Mirage F1'})
+
+CREATE (MirageF1)<-[:LAUNCH_PLATFORM]-(Mica)
+
+//Mica
+CREATE (F16:CRAFT {Craftname:'F-16'})
+
+CREATE (F16)<-[:LAUNCH_PLATFORM]-(Mica)
+
+//Mica,K-100,Astra,Brahmos-A,Brahmos-M,Brahmos-NG
+CREATE (Su:CRAFT {Craftname:'Su-30MKI'})
+
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(Mica)
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(K100)
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(Astra)
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(BrahMosA)
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(BrahMosNG)
+CREATE (Su)<-[:LAUNCH_PLATFORM]-(BrahMosM)
+
+//K-100
+CREATE (Su27:CRAFT {Craftname:'Su-27'})
+
+CREATE (Su27)<-[:LAUNCH_PLATFORM]-(K100)
+
+//K-100
+CREATE (Su35:CRAFT {Craftname:'Su-35'})
+
+CREATE (Su35)<-[:LAUNCH_PLATFORM]-(K100)
+
+//Astra
+CREATE (MIG29:CRAFT {Craftname:'MiG-29K'})
+
+CREATE (MIG29)<-[:LAUNCH_PLATFORM]-(Astra)
+
+//Astra
+CREATE (Tejas:CRAFT {Craftname:'Tejas MK1'})
+
+CREATE (Tejas)<-[:LAUNCH_PLATFORM]-(Astra)
+
+//Trishul
+CREATE (INST:CRAFT {Craftname:'INS Trishul'})
+
+CREATE (INST)<-[:LAUNCH_PLATFORM]-(Trishul)
+
+//Akash
+CREATE (T72:CRAFT {Craftname:'T-72'})
+
+CREATE (T72)<-[:LAUNCH_PLATFORM]-(Akash)
+
+//Akash
+CREATE (BMP2:CRAFT {Craftname:'BMP-2'})
+
+CREATE (BMP2)<-[:LAUNCH_PLATFORM]-(Akash)
+
+//BARAK-8
+CREATE (VLS:CRAFT {Craftname:'8cell VLS'})
+
+CREATE (VLS)<-[:LAUNCH_PLATFORM]-(Barak8)
+
+//PAD,AAD,PDV,Ashwin,Agni(I,II,III,IV,V,VI),Prithvi(1,2,3),Shaurya,Dhanush,Prahaar
+CREATE (TEL:CRAFT {Craftname:'8X8 TEL'})
+
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(PAD)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AAD)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(PDV)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(Ashwin)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniI)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniII)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniIII)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniIV)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniV)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(AgniVI)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(PrithviI)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(PrithviII)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(PrithviIII)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(Shaurya)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(Prahaar)
+CREATE (TEL)<-[:LAUNCH_PLATFORM]-(Dhanush)
+
+
+
+//Amogha
+CREATE (HalDhruv:CRAFT {Craftname:'HAL Dhruv'})
+
+CREATE (HalDhruv)<-[:LAUNCH_PLATFORM]-(Amogha1)
+
+//Amogha,Nag,Helina
+CREATE (HalLight:CRAFT {Craftname:'HAL Light Combat Helicopter'})
+
+CREATE (HalLight)<-[:LAUNCH_PLATFORM]-(Amogha1)
+CREATE (HalLight)<-[:LAUNCH_PLATFORM]-(Nag)
+CREATE (HalLight)<-[:LAUNCH_PLATFORM]-(Helina)
+
+//Nag,Helina
+CREATE (HalRudra:CRAFT {Craftname:'HAL Rudra'})
+
+CREATE (HalRudra)<-[:LAUNCH_PLATFORM]-(Nag)
+CREATE (HalRudra)<-[:LAUNCH_PLATFORM]-(Helina)
+
+//K-4,Sagarika
+CREATE (Arihant:CRAFT {Craftname:'Arihant submarines'})
+
+CREATE (Arihant)<-[:LAUNCH_PLATFORM]-(K4)
+CREATE (Arihant)<-[:LAUNCH_PLATFORM]-(Sagarika)
+
+//k-5
+CREATE (MIG17:CRAFT {Craftname:'MiG-17'})
+
+CREATE (MIG17)<-[:LAUNCH_PLATFORM]-(K5)
+
+//K-5
+CREATE (MIG19:CRAFT {Craftname:'MiG-19'})
+
+CREATE (MIG19)<-[:LAUNCH_PLATFORM]-(K5)
+
+//Brahmos(1,2),Nirbhay
+CREATE (LBML:CRAFT {Craftname:'Land based mobile launcher'})
+
+CREATE (LBML)<-[:LAUNCH_PLATFORM]-(BrahMos)
+CREATE (LBML)<-[:LAUNCH_PLATFORM]-(BrahMosII)
+CREATE (LBML)<-[:LAUNCH_PLATFORM]-(Nirbhay)
+
+
+
+
+CREATE (Air:AIRFORCE {name:'INDIAN AIR FORCE'})
+CREATE (Navy:NAVY {name:'INDIAN NAVY'})
+CREATE (Army:ARMY {name:'INDIAN ARMY'})
+
+CREATE (Rafale)-[:PRIMARY_USER]->(Air)
+CREATE (Mirage20)-[:PRIMARY_USER]->(Air)
+CREATE (MirageF1)-[:PRIMARY_USER]->(Air)
+CREATE (F16)-[:PRIMARY_USER]->(Air)
+CREATE (Su)-[:PRIMARY_USER]->(Air)
+CREATE (Su27)-[:PRIMARY_USER]->(Air)
+CREATE (Su35)-[:PRIMARY_USER]->(Air)
+CREATE (Tejas)-[:PRIMARY_USER]->(Air)
+CREATE (HalDhruv)-[:PRIMARY_USER]->(Air)
+CREATE (HalLight)-[:PRIMARY_USER]->(Air)
+CREATE (HalRudra)-[:PRIMARY_USER]->(Air)
+CREATE (MIG17)-[:PRIMARY_USER]->(Air)
+CREATE (MIG19)-[:PRIMARY_USER]->(Air)
+CREATE (LBML)-[:PRIMARY_USER]->(Air)
+
+CREATE (MIG29)-[:PRIMARY_USER]->(Navy)
+CREATE (INST)-[:PRIMARY_USER]->(Navy)
+CREATE (VLS)-[:PRIMARY_USER]->(Navy)
+CREATE (HalDhruv)-[:PRIMARY_USER]->(Navy)
+CREATE (Arihant)-[:PRIMARY_USER]->(Navy)
+CREATE (LBML)-[:PRIMARY_USER]->(Navy)
+
+CREATE (T72)-[:PRIMARY_USER]->(Army)
+CREATE (BMP2)-[:PRIMARY_USER]->(Army)
+CREATE (TEL)-[:PRIMARY_USER]->(Army)
+CREATE (HalDhruv)-[:PRIMARY_USER]->(Army)
+CREATE (HalLight)-[:PRIMARY_USER]->(Army)
+CREATE (HalRudra)-[:PRIMARY_USER]->(Army)
+CREATE (LBML)-[:PRIMARY_USER]->(Army)
+
+
+
+
+
+
+
+
+
